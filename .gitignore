@@ -1,0 +1,9 @@
+node_modules/
+.env
+build/
+.cache/
+public/build/
+*.db
+*.db-journal
+prisma/migrations/dev/
+.shopify/

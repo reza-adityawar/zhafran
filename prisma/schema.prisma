@@ -1,0 +1,68 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Session {
+  id            String    @id
+  shop          String
+  state         String
+  isOnline      Boolean   @default(false)
+  scope         String?
+  expires       DateTime?
+  accessToken   String
+  userId        BigInt?
+  firstName     String?
+  lastName      String?
+  email         String?
+  accountOwner  Boolean   @default(false)
+  locale        String?
+  collaborator  Boolean?  @default(false)
+  emailVerified Boolean?  @default(false)
+}
+
+model ShopSettings {
+  id          String   @id @default(cuid())
+  shop        String   @unique
+  logoUrl     String?
+  brandColor  String   @default("#1a1a2e")
+  accentColor String   @default("#e94560")
+  fontFamily  String   @default("Inter")
+  companyName String?
+  address     String?
+  phone       String?
+  email       String?
+  website     String?
+  footerNote  String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Template {
+  id        String   @id @default(cuid())
+  shop      String
+  name      String
+  type      String
+  isDefault Boolean  @default(false)
+  layout    String   @default("{}")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([shop])
+}
+
+model Subscription {
+  id               String    @id @default(cuid())
+  shop             String    @unique
+  plan             String    @default("free_trial")
+  status           String    @default("active")
+  trialEndsAt      DateTime?
+  currentPeriodEnd DateTime?
+  shopifyChargeId  String?
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+}
