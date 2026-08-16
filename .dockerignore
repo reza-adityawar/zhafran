@@ -1,0 +1,11 @@
+.git
+.shopify
+.claude
+node_modules
+build
+public/build
+.env
+*.db
+*.db-journal
+prisma/dev.db
+.DS_Store
