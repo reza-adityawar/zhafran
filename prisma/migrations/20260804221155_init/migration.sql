@@ -5,7 +5,7 @@ CREATE TABLE "Session" (
     "state" TEXT NOT NULL,
     "isOnline" BOOLEAN NOT NULL DEFAULT false,
     "scope" TEXT,
-    "expires" DATETIME,
+    "expires" TIMESTAMP(3),
     "accessToken" TEXT NOT NULL,
     "userId" BIGINT,
     "firstName" TEXT,
@@ -31,8 +31,8 @@ CREATE TABLE "ShopSettings" (
     "email" TEXT,
     "website" TEXT,
     "footerNote" TEXT,
-    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "updatedAt" DATETIME NOT NULL
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" TIMESTAMP(3) NOT NULL
 );
 
 -- CreateTable
@@ -43,8 +43,8 @@ CREATE TABLE "Template" (
     "type" TEXT NOT NULL,
     "isDefault" BOOLEAN NOT NULL DEFAULT false,
     "layout" TEXT NOT NULL DEFAULT '{}',
-    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "updatedAt" DATETIME NOT NULL
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" TIMESTAMP(3) NOT NULL
 );
 
 -- CreateTable
@@ -53,11 +53,11 @@ CREATE TABLE "Subscription" (
     "shop" TEXT NOT NULL,
     "plan" TEXT NOT NULL DEFAULT 'free_trial',
     "status" TEXT NOT NULL DEFAULT 'active',
-    "trialEndsAt" DATETIME,
-    "currentPeriodEnd" DATETIME,
+    "trialEndsAt" TIMESTAMP(3),
+    "currentPeriodEnd" TIMESTAMP(3),
     "shopifyChargeId" TEXT,
-    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "updatedAt" DATETIME NOT NULL
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" TIMESTAMP(3) NOT NULL
 );
 
 -- CreateIndex
