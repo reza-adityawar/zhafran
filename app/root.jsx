@@ -4,7 +4,9 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useRouteError,
 } from "@remix-run/react";
+import { boundary } from "@shopify/shopify-app-remix/server";
 
 export const links = () => [
   { rel: "preconnect", href: "https://cdn.shopify.com/" },
@@ -30,4 +32,12 @@ export default function App() {
       </body>
     </html>
   );
+}
+
+export const headers = (headersArgs) => {
+  return boundary.headers(headersArgs);
+};
+
+export function ErrorBoundary() {
+  return boundary.error(useRouteError());
 }

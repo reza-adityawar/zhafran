@@ -2,14 +2,8 @@
 
 client_id = "94fc001a499320252eb75f93ee5652cd"
 name = "zhafran-app"
-application_url = "https://languages-beta-motherboard-exceed.trycloudflare.com"
+application_url = "https://zhafran-beta.vercel.app"
 embedded = true
-
-[build]
-automatically_update_urls_on_dev = true
-
-[webhooks]
-api_version = "2026-10"
 
 [access_scopes]
 # Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
@@ -17,7 +11,10 @@ scopes = "read_customers,read_orders,read_products,write_files"
 
 [auth]
 redirect_urls = [
-  "https://languages-beta-motherboard-exceed.trycloudflare.com/auth/callback",
-  "https://languages-beta-motherboard-exceed.trycloudflare.com/auth/shopify/callback",
-  "https://languages-beta-motherboard-exceed.trycloudflare.com/api/auth/callback"
+  "https://zhafran-beta.vercel.app/auth/callback",
+  "https://zhafran-beta.vercel.app/auth/shopify/callback",
+  "https://zhafran-beta.vercel.app/api/auth/callback"
 ]
+
+[webhooks]
+api_version = "2026-10"
