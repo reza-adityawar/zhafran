@@ -1,6 +1,7 @@
 node_modules/
 .env
 build/
+.vercel/
 .cache/
 public/build/
 *.db
